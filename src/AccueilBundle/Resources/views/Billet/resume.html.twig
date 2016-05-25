@@ -1,0 +1,78 @@
+{% extends "AccueilBundle::layout.html.twig" %}
+
+{% block title %}
+    Récapitulatif - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="menu">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8"><br/><br/><br/><br/>
+                <div class="back-form">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <h2>Synthèse de la commande</h2>
+
+
+
+                    {% for gens in reservation.billets %}
+                            <h4>Nom & Prenom:<strong>{{ gens.nom~' '~gens.prenom }}</strong></h4>
+                            <h4>Date de naissance: {{ gens.dateNaissance|date('d-m-Y') }}</h4>
+                            <h4>Type de tarif: {{ gens.tarifs.nom }} </h4>
+                            <h4>Prix: {{ gens.tarifs.prix }}€</h4>
+                            <h4>Pays d'origine: {{ gens.pays.nomFr }}</h4>
+                        {% endfor %}
+
+                        <h4>Email: {{ reservation.email }}</h4>
+                        {% if reservation.demiJournee == 1 %}
+                            <h4>Demi journée</h4>
+                        {% elseif reservation.demiJournee == 0 %}
+                            <h4>Journée entière</h4>
+                        {% endif %}
+                        <h4>Date de réservation:{{ reservation.dateResa|date('d-m-Y') }}</h4>
+
+                        
+                        <h4><strong>Total : {{ reservation.prixTotal }} €</strong></h4>
+
+                        <form action="{{ path('validation', {'id': reservation.id }) }}" method="POST">
+                            <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="pk_test_MQEN4HNJ1LfQGUSCRuo09lOL"
+                                    data-amount="{{ reservation.prixTotal }}00"
+                                    data-name="Musée du Louvre"
+                                    data-description="Billets (€{{ reservation.prixTotal }}.00)"
+                                    data-image="http://www.iphon.fr/public/2009/Q4/.musee-louvre-iphone-1_s.jpg"
+                                    data-locale="auto"
+                                    data-currency="eur">
+                            </script>
+                        </form>
+
+                        <br>
+
+                       <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+<input type='hidden' value="{{ reservation.prixTotal }}" name="amount" />
+<input name="currency_code" type="hidden" value="EUR" />
+<input name="shipping" type="hidden" value="0.00" />
+<input name="tax" type="hidden" value="0.00" />
+<input name="return" type="hidden" value="http://localhost:8888/museedul4/web/app_dev.php/validation/{{ reservation.id }}" />
+<input name="cancel_return" type="hidden" value="http://localhost:8888/museedul4/web/app_dev.php/" />
+<input name="notify_url" type="hidden" value="http://localhost:8888/museedul4/web/app_dev.php/" />
+<input name="cmd" type="hidden" value="_xclick" />
+<input name="business" type="hidden" value="{{ reservation.email }}" />
+<input name="item_name" type="hidden" value="billet pour le {{ reservation.dateResa|date('d-m-Y') }}" />
+<input name="lc" type="hidden" value="FR" />
+<input name="bn" type="hidden" value="PP-BuyNowBF" />
+<input name="custom" type="hidden" value="{{ reservation.id }}" />
+<input alt="Effectuez vos paiements via PayPal : une solution rapide, gratuite et sécurisée" name="submit" src="https://www.paypal.com/fr_FR/FR/i/btn/btn_buynow_LG.gif" type="image" /><img src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" border="0" alt="" width="1" height="1" />
+</form>
+
+
+
+  </div>
+            </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

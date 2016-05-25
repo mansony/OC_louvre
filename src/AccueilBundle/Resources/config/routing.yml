@@ -1,0 +1,31 @@
+accueil:
+    path:     /
+    defaults: { _controller: AccueilBundle:Accueil:index }
+
+date_reserve:
+    path:     /reserve/
+    defaults: { _controller: AccueilBundle:Billet:date }
+
+famille:
+    path:     /famille/
+    defaults: { _controller: AccueilBundle:Billet:datef }
+
+reservation_billet:
+    path:     /reserve/{date}/{dj}/{places}
+    defaults: { _controller: AccueilBundle:Billet:billet }
+
+famille_billet:
+    path:     /famille/{date}/{dj}/{nom}/{pays}
+    defaults: { _controller: AccueilBundle:Billet:billetf }
+
+resume:
+    path:     /resume/{id}
+    defaults: { _controller: AccueilBundle:Billet:recap }
+
+resumef:
+    path:     /resumef/{idf}
+    defaults: { _controller: AccueilBundle:Billet:recapf }
+
+validation:
+    path:    /validation/{id}
+    defaults: { _controller: AccueilBundle:Billet:valide }

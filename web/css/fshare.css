@@ -1,0 +1,208 @@
+﻿.fshare-box
+{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+.fshare-compact
+{
+    top: 0px;
+    padding: 10px;
+    color: White;
+	width:70px;
+	padding:10px!important;
+}
+.fshare-compact #fshare-collapsed
+{
+	width: 80px!important;
+	height: 50px;
+	color: white;
+	background-color: #555;
+	text-align: center;
+	line-height: 50px;
+	cursor:pointer;
+	position:relative;
+}
+.fshare-compact #fshare-close
+{
+	background-image: url('../images/share_sprite.png');
+	background-repeat: no-repeat;
+	background-position: 0 -240px;
+	height: 26px;
+	width: 26px;	
+	position: absolute;
+	left: 80px;
+	top: -15px;
+	cursor: pointer;
+	
+}
+.fshare-compact #fshare-expanded
+{
+	/*margin-top:-10px!important;*/
+	height:280px;		
+	background-color: black;
+	opacity: .8;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	filter: alpha(opacity=80);
+	-moz-opacity: .8;
+	-khtml-opacity: .8;
+	width:60px!important;
+	padding:10px!important;
+}
+.fshare-default
+{
+    position: absolute;
+    top: 0px;
+    padding: 10px;
+    background-color: White;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.fshare-large
+{
+    position: absolute;
+    top: 0px;
+    padding: 10px;
+    background-color: White;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    
+}
+
+.fshare-large .fshare-button
+{
+    width: 100px;
+    height: 37px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: White;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 11px;
+    padding-top: 4px;
+}
+.fshare-large .fshare-button.fb
+{
+    background-image: url('../img/tab-fb.png');
+}
+.fshare-large .fshare-button.tw
+{
+    background-image: url('../img/tab-tw.png');
+}
+.fshare-large .fshare-button.gplus
+{
+    background-image: url('../img/tab-gplus.png');
+}
+.fshare-large .fshare-button.in
+{
+    background-image: url('../img/tab-in.png');
+}
+.fshare-large .fshare-button span
+{
+    display: block;
+    margin-left: 40px;
+    line-height:1.2;
+}
+a.social-label
+{
+    text-decoration: none !important;
+    color: White !important; /*display:block;*/
+}
+.fshare-wide
+{
+    background-color: #393939;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 124px;
+    position: absolute;
+    top: 0px;
+    padding-left: 10px 2px;
+}
+.fshare-wide .fshare-button
+{
+    width: 116px;
+    height: 36px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 4px;
+}
+.fshare-wide .fshare-button.fb
+{
+    background-image: url('../images/wider-fb.png');
+}
+.fshare-wide .fshare-button.tw
+{
+    background-image: url('../images/wider-tw.png');
+}
+.fshare-wide .fshare-button.gplus
+{
+    background-image: url('../images/wider-gplus.png');
+}
+.fshare-wide .fshare-button.in
+{
+    background-image: url('../images/wider-in.png');
+}
+.fshare-wide span
+{
+    display: block;
+    margin-left: 50px;
+    margin-top: 6px;
+    line-height:1.2;
+}
+
+.fshare-icon
+{
+    background-color: #393939;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    width: 90px;
+    margin-left:10px;
+    position: absolute;
+    top: 0px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.fshare-icon .fshare-button
+{
+    width: 39px;
+    height: 36px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 4px;
+}
+.fshare-icon .fshare-button.fb
+{
+    background-image: url('../images/iconic-fb.png');
+}
+.fshare-icon .fshare-button.tw
+{
+    background-image: url('../images/iconic-tw.png');
+}
+.fshare-icon .fshare-button.gplus
+{
+    background-image: url('../images/iconic-gplus.png');
+}
+.fshare-icon .fshare-button.in
+{
+    background-image: url('../images/iconic-in.png');
+}
+.fshare-icon span
+{
+    display: block;
+    margin-left: 50px;
+    margin-top: 6px;
+    color: White !important;
+    line-height:1.2;
+}

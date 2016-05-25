@@ -1,0 +1,44 @@
+.body{
+	background:url("../img/louvre.jpg") repeat 0px 0px;
+  font-family: 'Open Sans', sans-serif;
+  background-size: cover;
+}
+
+.login-head {
+    background: #0099e5;
+    padding: 1.6em 1em;
+    position: relative;
+    border-bottom: 1px solid #201F1F;
+}
+
+.login-head h2 {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400;
+}
+
+.back-form {
+    background: black;
+   color:white;
+   opacity: 0.9;
+}
+
+.thumbnail{
+    height:210px;
+}
+.texte{
+    height:120px;
+}
+.nav li{
+    font-size:1.3em;
+}
+.prix_accueil{
+    pointer-events: none;
+}
+
+.sign-up {
+    background: rgba(2, 41, 20, 0.45);
+    padding: 1em 2.5em;
+    min-height: 42px;
+}

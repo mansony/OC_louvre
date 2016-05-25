@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Client Login Form,Login Forms,Sign up Forms,Registration Forms,News latter Forms,Elements"./>
+
+    <title>{% block title %}Réservation des billets du Louvre{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css" type="text/css" media="all"/>
+        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/css.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/jquery.flipster.css') }}">
+        <link href="{{ asset('css/fshare.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/bootstrap-responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+        <script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+    {% endblock %}
+
+
+
+
+
+</head>
+
+<body class="body">
+<div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/museedul4/web/">Accueil</a>
+                <img src="{{ asset('img/logo.jpg') }}" width="50">
+            </div>
+        </div>
+    </nav>
+    
+    <div >
+        {% block body %}
+
+        {% endblock %}
+    </div>
+
+   
+</div>
+
+{% block javascripts %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+    <script src="jquery/jquery-ui.min.js"></script>
+    <script src="jquery/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="{{ asset('js/jquery.flipster.js') }}"></script> 
+
+    <script src="{{ asset('js/quake.slider.js') }}"  type="text/javascript"></script>
+    <script src="{{ asset('js/fshare.js') }} " type="text/javascript"></script>
+
+
+
+
+    <script>
+        function DisableTuesday(date) {
+
+            var day = date.getDay();
+            if (day == 2) {
+                return [false] ;
+            } else {
+                return nationalDays(date);
+            }
+        }
+
+        natDays = [
+            [5, 1, 'fr'], [11, 1, 'fr'], [12, 25, 'fr']
+        ];
+
+        function nationalDays(date) {
+            for (i = 0; i < natDays.length; i++) {
+                if (date.getMonth() == natDays[i][0] - 1
+                        && date.getDate() == natDays[i][1]) {
+                    return [false, natDays[i][2] + '_day'];
+                }
+            }
+            return DisableSunday(date);
+        }
+
+        function DisableSunday(date) {
+            var day = date.getDay();
+            if (day == 0) {
+                return [false] ;
+            } else {
+                return [true, ''];
+            }
+        }
+
+        $('.date').datepicker({
+            dateFormat: 'yy-mm-dd',
+            firstDay: 1,
+            minDate:0,
+            beforeShowDay: DisableTuesday
+        });
+
+        $(function(){ $(".flipster").flipster({ style: 'carousel', start: 0 }); });
+    </script>
+
+
+    <script type="text/javascript">
+    
+        $(document).ready(function () {
+            $('.quake-slider').quake({
+                effects: ['swirlFadeIn', 'swirlFadeOut', 'randomFade', 'linearPeal', 'linearPealReverse', 'swirlFadeIn', 'swirlFadeOut',
+            'diagonalFade', 'blind', 'blindFade', 'explode', 'swirlFadeIn',
+            'mixBarsFancy', 'blindFadeReverse', 'slideIn', 'slideInFancy', 'swirlFadeOut'],
+                thumbnails: true,
+                captionOpacity: '0.3',
+                captionOrientations: ['top', 'right', 'bottom', 'left']
+            });
+
+            $('#floating-bar').fshare({ theme: 'large', upperLimitElementId: 'upper-limit-element', lowerLimitElementId: 'lower-limit-element' });
+        });
+    </script>
+
+
+
+{% endblock %}
+</body>
+
+</html>

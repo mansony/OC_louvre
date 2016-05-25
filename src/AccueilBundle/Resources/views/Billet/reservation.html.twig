@@ -1,0 +1,78 @@
+{% extends "AccueilBundle::layout.html.twig" %}
+
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block title %}
+    Réservation - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="menu"><br/><br/><br/>
+ <div class="menu"><br/><br/><br/>
+<div class="alert alert-info col-md-offset-3 col-md-6" role="alert" style="text-align:center;color:white;font-size:18px;background-color:#222;">
+  <strong>Résérvez maintenant</strong> 
+      </div>
+    <br/><br/><br/><br/>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-9">
+                <div class="">
+
+<div class="back-form">
+
+                    <h1 style="text-align:center">Completez vos informations</h1>
+                    
+
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                    {{ form_errors(form) }}
+
+<div class="col-md-offset-2 col-md-10">
+                        {% for gens in form.billet %}
+                        <div class="form-group">
+                            {{ form_label(gens.nom, "Nom", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
+                            <div class="col-sm-5">
+                                {{ form_widget(gens.nom, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(gens.prenom, "Prénom", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
+                            <div class="col-sm-5">
+                                {{ form_widget(gens.prenom) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
+                        <div class="col-sm-5">
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}<br>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            {{ form_label(gens.dateNaissance, "Date de naissance", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                            <div class="col-md-5">
+                                {{ form_widget(gens.dateNaissance) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(gens.tarifReduit, "Tarif réduit", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                            <div class="col-sm-5">
+                            <button type="button" class="btn btn-xs btn-info">Si oui vous devez présenter une carte d’étudiant, militaire ou équivalent lors de l’entrée</button>
+                                {{ form_widget(gens.tarifReduit) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(gens.pays, "Pays", {'label_attr': {'class': 'col-sm-6 control-label'}}) }}
+                            <div class="col-md-5">
+                                {{ form_widget(gens.pays) }}
+                            </div>
+                        </div><br><br>
+                        {% endfor %}
+</div>
+                        {{ form_rest(form) }}
+                        {{ form_widget(form.save) }}
+                    </form>
+
+</div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

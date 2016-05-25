@@ -1,0 +1,117 @@
+{% extends "AccueilBundle::layout.html.twig" %}
+
+{% block title %}
+    Annonces - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class=""><br/><br/><br/>
+
+  <div class="alert alert-info col-md-offset-2 col-md-8" role="alert" style="text-align:center;color:white;font-size:18px;background-color:#222;">
+  <strong>Bienvenue sur le  musée du louvre, veillez selectioner le type de billet qui vous convient</strong> 
+      </div>
+
+    <br/><br/><br/>
+        <div class="row">
+        </div>
+        <div class="content" id="Main-Content">
+
+      
+
+<div class="flipster">
+          <ul>
+            <li>
+                <div class="col-md-12 pricing">
+                    <div class="pricing-top green-top">
+                        <h3>Normal</h3>
+                        <p>16 €</p>
+                    </div>
+                    <div class="pricing-bottom">
+                        <div class="pricing-bottom-top"><br/><br/>
+                            <p>à partir de 12 ans</p><br/><br/>
+                        </div>
+                        <div class="buy-button">
+                         <a class="btn btn-primary" href="{{ path('date_reserve') }}">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="col-md-12 pricing">
+                    <div class="pricing-top blue-top">
+                        <h3>Enfant</h3>
+                        <p>8 €</p>
+                    </div>
+                    <div class="pricing-bottom">
+                        <div class="pricing-bottom-top">
+                            <p>à partir de 4 ans et jusqu’à 12 ans(gratuite pour les enfants de moins de 4 ans) </p>
+                        </div>
+                        <div class="buy-button">
+                           <a class="btn btn-primary" href="{{ path('date_reserve') }}">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="col-md-12 pricing">
+                    <div class="pricing-top">
+                        <h3>Famille</h3>
+                        <p>35 €</p>
+                    </div>
+                    <div class="pricing-bottom">
+                        <div class="pricing-bottom-top">
+                            <p>2 adultes et 2 enfants ayant le même nom de famille</p>
+                        </div>
+                        <div class="buy-button">
+                          <a class="btn btn-primary" href="{{ path('famille') }}">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="col-md-12 pricing">
+                    <div class="pricing-top green-top">
+                        <h3>Senior</h3>
+                        <p>12 €</p>
+                    </div>
+                    <div class="pricing-bottom">
+                        <div class="pricing-bottom-top"><br/><br/>
+                            <p>à partir de 60 ans</p><br/><br/>
+                        </div>
+                        <div class="buy-button">
+                            <a class="btn btn-primary" href="{{ path('date_reserve') }}">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="col-md-12 pricing">
+                    <div class="pricing-top">
+                        <h3>Réduit</h3>
+                        <p>10 €</p>
+                    </div>
+                    <div class="pricing-bottom">
+                        <div class="pricing-bottom-top">
+                        <p>Si vous êtes étudiant, militaire,employé du musée ou du Ministère de la Culture…</p>
+                        </div>
+                        <div class="buy-button">
+                           <a class="btn btn-primary" href="{{ path('date_reserve') }}">Commander</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+          </ul>
+        </div>
+            
+
+        </div>
+    </div>
+
+    <script>
+<!--
+
+    $(function(){ $(".flipster").flipster({ style: 'carousel', start: 0 }); });
+
+-->
+</script>
+{% endblock %}

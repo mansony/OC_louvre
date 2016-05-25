@@ -1,0 +1,38 @@
+<style>
+    .demipage{
+        height: 48%;
+    }
+</style>
+
+
+<img src="{{ asset('http://localhost:8888/anglais/img/logo.jpg') }}" width="100">
+
+<h2 style="color:#9c2d23;text-align:center">Billets - Musée du louvre</h2>
+
+<h2 style="color:#9c2d23;text-align:center">{{ reservation.dateResa|date('d-m-Y') }}</h2>
+
+{% if reservation.demiJournee == 1 %}
+    <h2 style="color:#9c2d23;text-align:center">Réservation pour une Demi journée</h2>
+{% elseif reservation.demiJournee == 0 %}
+    <h2 style="color:#9c2d23;text-align:center">Réservation pour une Journée entière</h2>
+{% endif %}
+
+<h3 style="color:#9c2d23;text-align:center">Date de réservation le {{ reservation.dateJour|date('d-m-Y') }}</h3>
+
+
+{% for gens in reservation.billets %}
+    {% if loop.index % 2 == 1 %}
+        <page>
+    {% endif %}
+        <div class="demipage">
+            <h2 style="text-align:center"><strong>{{ gens.nom~' '~gens.prenom }}</strong></h2>
+            <h2 style="text-align:center"><strong>Tarif : {{ gens.tarifs.nom }}</strong></h2>
+            <h2 style="text-align:center"><strong>Montant: {{ gens.tarifs.prix }} € </strong></h2>
+            <h4>Pays d'origine: {{ gens.pays.nomFr }}</h4>
+            <h4>Date de Naissance : {{ gens.dateNaissance|date('d-m-Y') }}</h4>
+            <qrcode value="{{ gens.code }}" ec="H" style="width: 50mm; background-color: white; color: black;"></qrcode>
+        </div>
+    {% if loop.index % 2 == 1 %}
+        </page>
+    {% endif %}
+{% endfor %}
